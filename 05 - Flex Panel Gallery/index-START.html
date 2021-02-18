@@ -65,10 +65,16 @@
       /**/
 
       flex: 1 0 auto;
-       display: flex;
+      display: flex;
       justify-content: center;
       align-items: center; 
     }
+
+    .panel > *:first-child { transform: translateY(-100%); }
+    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:last-child { transform: translateY(100%); }
+    .panel.open-active > *:last-child { transform: translateY(0); }
+
 
     .panel p {
       text-transform: uppercase;
@@ -84,6 +90,12 @@
     .panel.open {
       flex: 5;
       font-size: 40px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .panel p {
+        font-size: 1em;
+      }
     }
 
   </style>
@@ -123,7 +135,7 @@
     
 
     function toggleOpen() {
-      conole.log('Hello');
+      console.log('Hello');
       this.classList.toggle('open');
     }
 
